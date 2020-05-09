@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClipboardSaver", "ClipboardSaver.csproj", "{13D4C6E2-7D78-4887-8FB4-97373B50EECB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13D4C6E2-7D78-4887-8FB4-97373B50EECB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13D4C6E2-7D78-4887-8FB4-97373B50EECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13D4C6E2-7D78-4887-8FB4-97373B50EECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13D4C6E2-7D78-4887-8FB4-97373B50EECB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {88373054-C751-4B27-B4F5-BBA4C0D73AEC}
+	EndGlobalSection
+EndGlobal
