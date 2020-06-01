@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ClipboardSaver
 {
-    static class Program
+    class Program
     {
         /// <summary>
         /// Главная точка входа для приложения.
@@ -16,7 +18,7 @@ namespace ClipboardSaver
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new ClipboardSaver());
         }
     }
 }
