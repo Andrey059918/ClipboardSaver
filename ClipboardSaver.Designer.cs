@@ -33,12 +33,13 @@
 			this.ContextMenuStrip_Tray = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.MenuItem_Browse = new System.Windows.Forms.ToolStripMenuItem();
 			this.MenuItem_BrowseLast = new System.Windows.Forms.ToolStripMenuItem();
-			this.ToolStripSeparator_1 = new System.Windows.Forms.ToolStripSeparator();
 			this.MenuItem_Open = new System.Windows.Forms.ToolStripMenuItem();
+			this.ToolStripSeparator_1 = new System.Windows.Forms.ToolStripSeparator();
 			this.MenuItem_Suspend = new System.Windows.Forms.ToolStripMenuItem();
 			this.MenuItem_Startup = new System.Windows.Forms.ToolStripMenuItem();
 			this.MenuItem_Exit = new System.Windows.Forms.ToolStripMenuItem();
 			this.NotifyIcon_Tray = new System.Windows.Forms.NotifyIcon(this.components);
+			this.MenuItem_Name = new System.Windows.Forms.ToolStripMenuItem();
 			this.ContextMenuStrip_Tray.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -48,12 +49,13 @@
             this.MenuItem_Browse,
             this.MenuItem_BrowseLast,
             this.MenuItem_Open,
+            this.MenuItem_Name,
             this.ToolStripSeparator_1,
             this.MenuItem_Suspend,
             this.MenuItem_Startup,
             this.MenuItem_Exit});
 			this.ContextMenuStrip_Tray.Name = "ContextMenuStrip_Tray";
-			this.ContextMenuStrip_Tray.Size = new System.Drawing.Size(237, 164);
+			this.ContextMenuStrip_Tray.Size = new System.Drawing.Size(237, 186);
 			// 
 			// MenuItem_Browse
 			// 
@@ -67,16 +69,16 @@
 			this.MenuItem_BrowseLast.Size = new System.Drawing.Size(236, 22);
 			this.MenuItem_BrowseLast.Text = "Последние папки";
 			// 
-			// ToolStripSeparator_1
-			// 
-			this.ToolStripSeparator_1.Name = "ToolStripSeparator_1";
-			this.ToolStripSeparator_1.Size = new System.Drawing.Size(233, 6);
-			// 
 			// MenuItem_Open
 			// 
 			this.MenuItem_Open.Name = "MenuItem_Open";
 			this.MenuItem_Open.Size = new System.Drawing.Size(236, 22);
 			this.MenuItem_Open.Text = "Открыть папку";
+			// 
+			// ToolStripSeparator_1
+			// 
+			this.ToolStripSeparator_1.Name = "ToolStripSeparator_1";
+			this.ToolStripSeparator_1.Size = new System.Drawing.Size(233, 6);
 			// 
 			// MenuItem_Suspend
 			// 
@@ -105,13 +107,19 @@
 			this.NotifyIcon_Tray.Icon = ((System.Drawing.Icon)(resources.GetObject("NotifyIcon_Tray.Icon")));
 			this.NotifyIcon_Tray.Text = "Clipboard Saver";
 			// 
-			// Form1
+			// MenuItem_Name
+			// 
+			this.MenuItem_Name.Name = "MenuItem_Name";
+			this.MenuItem_Name.Size = new System.Drawing.Size(236, 22);
+			this.MenuItem_Name.Text = "Запрашивать имя";
+			// 
+			// ClipboardSaver
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(268, 38);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Name = "Form1";
+			this.Name = "ClipboardSaver";
 			this.Text = "Clipboard Saver";
 			this.ContextMenuStrip_Tray.ResumeLayout(false);
 			this.ResumeLayout(false);
@@ -129,6 +137,7 @@
         private System.Windows.Forms.ToolStripMenuItem MenuItem_Open;
         private System.Windows.Forms.ToolStripMenuItem MenuItem_Browse;
 		private System.Windows.Forms.ToolStripMenuItem MenuItem_BrowseLast;
+		private System.Windows.Forms.ToolStripMenuItem MenuItem_Name;
 	}
 }
 

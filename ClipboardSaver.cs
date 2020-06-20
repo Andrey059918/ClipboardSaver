@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using Microsoft.VisualBasic;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -47,6 +48,10 @@ namespace ClipboardSaver {
             MenuItem_Suspend.Click += (s, a) => {
                 Pause = !MenuItem_Suspend.Checked;
                 MenuItem_Suspend.Checked = Pause;
+            };
+            MenuItem_Name.Click += (s, a) => {
+                MenuItem_Name.Checked = !MenuItem_Name.Checked;
+                SaveConfig();
             };
             MenuItem_Browse.Click += (s, a) => BrowseFolder();
             MenuItem_Open.Click += (s, a) => System.Diagnostics.Process.Start(Paths[0]);
@@ -123,14 +128,20 @@ namespace ClipboardSaver {
         }
         private void SaveConfig()
         {
-            File.WriteAllText("ClipboardSaver.conf", String.Join("\n",Paths));
+            File.WriteAllText("ClipboardSaver.conf", MenuItem_Name.Checked.ToString()+"\n"+ String.Join("\n",Paths));
         }
         private void LoadConfig()
         {
             Paths = new List<string>();
             if (File.Exists("ClipboardSaver.conf")) {
                 File.ReadAllLines("ClipboardSaver.conf").ToList().ForEach(a => {
-                    if (Directory.Exists(a.Trim())) {
+                    if (a == "True") {
+                        MenuItem_Name.Checked = true;
+                    }
+                    else if (a == "False") {
+                        MenuItem_Name.Checked = false;
+                    }
+                    else if (Directory.Exists(a.Trim())) {
                         Paths.Add(a.Trim());
                     }
                 });
@@ -166,7 +177,32 @@ namespace ClipboardSaver {
                     using (Image img = GetImageFromClipboard()) {
                         img.RotateFlip(RotateFlipType.RotateNoneFlipY);
                         Directory.CreateDirectory(Paths[0]);
-                        img.Save(Paths[0] + "\\Image." + GetTimeStamp() + ".png", ImageFormat.Png);
+                        String imgName = "Image." + GetTimeStamp();
+                        if (MenuItem_Name.Checked) {
+                            Boolean repeat = true;
+                            while (repeat) {
+                                String name = Interaction.InputBox("Имя файла (без расширения):", "Сохранить изображение", imgName);
+                                if (String.IsNullOrWhiteSpace(name)) {
+                                    repeat = false;
+                                }
+                                else if (Path.GetInvalidFileNameChars().Any(a=>name.Contains(a))) {
+                                    if (MessageBox.Show("Введено некорректное имя файла. Повторить?", "Сохранить изображение", MessageBoxButtons.OKCancel) == DialogResult.Cancel) {
+                                        repeat = false;
+                                    }
+                                }
+                                else if (File.Exists(Paths[0] + "\\" + name + ".png")) {
+                                    if (MessageBox.Show("Такой файл уже существует. Заменить?", "Сохранить изображение", MessageBoxButtons.OKCancel) == DialogResult.OK) {
+                                        imgName = name;
+                                        repeat = false;
+                                    }
+                                }
+                                else {
+                                    imgName = name;
+                                    repeat = false;
+                                }
+                            }
+                        }
+                        img.Save(Paths[0] + "\\" + imgName + ".png", ImageFormat.Png);
                     }
                 }
             }
